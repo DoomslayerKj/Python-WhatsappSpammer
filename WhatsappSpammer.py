@@ -28,19 +28,15 @@ def gather_info_new():
 
 
 def whatsapp_spam_new(name,spam_times,message):
-    try:
-        user = browser.find_element_by_xpath('//span[@title="{}"]'.format(name))
-        user.click()
-        input_text_box = browser.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')
-        #FINDING USER AND CLICKING INPUT BOX
-    except NoSuchElementException:
-        print('Given user "{}" not found in the contact list'.format(name))
 
-    except Exception as e:
-        # Close the browser
-        browser.close()
-        print(e)
-        sys.exit()
+    user = browser.find_element_by_xpath('//span[@title="{}"]'.format(name))
+    user.click()
+    input_text_box = browser.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')
+    #FINDING USER AND CLICKING INPUT BOX
+
+    browser.close()
+    print(e)
+    sys.exit()
 
 
     for i in range(spam_times):
